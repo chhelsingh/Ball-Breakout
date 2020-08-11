@@ -284,6 +284,61 @@ MonoBehaviour:
   ballPrefab: {fileID: 3659862974078396225, guid: b9b8575b239208c4db6520c844e67016,
     type: 3}
   initialBallSpeed: 200
+--- !u!1 &748749833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748749834}
+  - component: {fileID: 748749835}
+  m_Layer: 0
+  m_Name: BrickManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748749834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748749833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2112856368}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748749835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748749833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2431162396a319a419504599738bacbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickPrefab: {fileID: 2628340025857226045, guid: da5b259b18f321d4d9d020033377c705,
+    type: 3}
+  Sprites:
+  - {fileID: 21300000, guid: f97b7bd0c01bbbe4687a830ac05cc451, type: 3}
+  - {fileID: 21300000, guid: 878d5805e6aa84a4dad2b57075ed69b3, type: 3}
+  - {fileID: 21300000, guid: 2fa0ab031a7f3ca469f47b7f75736020, type: 3}
+  BrickColors:
+  - {r: 0.0039215665, g: 0.27638403, b: 0.9529412, a: 1}
+  - {r: 0.9433962, g: 0.93432117, b: 0.04004982, a: 1}
+  - {r: 0.9528302, g: 0.6269336, b: 0.04045032, a: 1}
+  - {r: 0.9528302, g: 0.19290951, b: 0.04045032, a: 1}
+  CurrentLevel: 2
 --- !u!1 &1008135239
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +433,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1044493799
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d689df9eb68c7d48b72b674dad7d492, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -572,8 +627,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1718304251
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 652eaeffb4787a04eaaec488cfe228a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -786,6 +841,7 @@ Transform:
   m_Children:
   - {fileID: 1450018339}
   - {fileID: 615251713}
+  - {fileID: 748749834}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
