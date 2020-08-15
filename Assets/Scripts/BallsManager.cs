@@ -1,17 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BallsManager : MonoBehaviour
 {
-     #region Singleton
+    #region Singleton
 
     private static BallsManager _instance;
     public static BallsManager Instance => _instance;
 
     private void Awake() 
     {
-        if(!_instance == null )
+        if(_instance != null )
         {
             Destroy(gameObject);
         }
@@ -20,6 +22,8 @@ public class BallsManager : MonoBehaviour
             _instance = this;
         }
     }
+
+    
     #endregion
 
     [SerializeField]
@@ -43,15 +47,40 @@ public class BallsManager : MonoBehaviour
             Vector3 paddlePosition = Paddle.Instance.gameObject.transform.position;
             Vector3 ballPosition = new Vector3(paddlePosition.x, paddlePosition.y + 0.27f, 0);
             initialBall.transform.position = ballPosition;
+        
+            if(Input.GetMouseButtonDown(0))
+            {
+                initialBallRb.isKinematic = false;
+                initialBallRb.AddForce(new Vector2 (0, initialBallSpeed));
+                GameManager.Instance.IsGameStarted = true;
+            }
         }
         
-        if(Input.GetMouseButtonDown(0))
+       
+    }
+
+    internal void ResetBalls()
+    {
+       foreach(Ball ball in this.Balls.ToList())
+       {
+           Destroy(ball.gameObject);
+       }
+       InitBall();
+    }
+
+    public void SpawnBalls(Vector3 position, int count)
+    {
+        for (int i = 0; i < count; i++)
         {
-            initialBallRb.isKinematic = false;
-            initialBallRb.AddForce(new Vector2 (0, initialBallSpeed));
-            GameManager.Instance.IsGameStarted = true;
+            Ball spawnBall = Instantiate(ballPrefab, position, Quaternion.identity) as Ball;
+
+            Rigidbody2D spawnBallRb = spawnBall.GetComponent<Rigidbody2D>();
+            spawnBallRb.isKinematic = false;
+            spawnBallRb.AddForce(new Vector2(0, initialBallSpeed));
+            this.Balls.Add(spawnBall);
         }
     }
+
     private void InitBall()
     {
         Vector3 paddlePosition = Paddle.Instance.gameObject.transform.position;
