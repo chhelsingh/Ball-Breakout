@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using System.Linq;
 
 public class MultiBall : Collectable
 {
@@ -9,7 +6,7 @@ public class MultiBall : Collectable
    {
        foreach (Ball ball in BallsManager.Instance.Balls.ToList())
        {
-           BallsManager.Instance.SpawnBalls(ball.gameObject.transform.position, 2);
+           BallsManager.Instance.SpawnBalls(ball.gameObject.transform.position, 2, ball.isLightningBall);
        }
    }
 }

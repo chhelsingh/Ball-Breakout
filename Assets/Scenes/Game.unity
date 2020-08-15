@@ -862,10 +862,11 @@ MonoBehaviour:
   AvailableBuffs:
   - {fileID: 926405630798273958, guid: a8a9c65b370ad594d85cd4e1faf6240c, type: 3}
   - {fileID: 8045269834681905775, guid: 596deb506616f5b4e800b57ec3093376, type: 3}
+  - {fileID: 4187534837127879656, guid: 41c53a97d713e9540b5895519f10a80d, type: 3}
   AvailableDebuffs:
   - {fileID: 7992980756107690126, guid: a9dfb4dc5addac84c8d443f158bb06c0, type: 3}
-  BuffChance: 25
-  DebuffsChance: 20
+  BuffChance: 15
+  DebuffsChance: 5
 --- !u!1 &1008135239
 GameObject:
   m_ObjectHideFlags: 0
